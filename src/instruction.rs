@@ -18,7 +18,7 @@ pub enum EscrowInstruction {
     /// 
     InitEscrow {
         amount: u64
-    }
+    },
 
     /// Accounts expected:
     ///
