@@ -8,7 +8,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-
+  
 jobs:
   coverage:
     name: Soteria Coverage Test
