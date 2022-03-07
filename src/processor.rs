@@ -34,7 +34,7 @@ impl Processor {
         }
     }
 
-    fn process_init_escrow (
+    fn process_init_escrow(
         accounts: &[AccountInfo],
         amount: u64,
         program_id: &Pubkey,
@@ -211,7 +211,6 @@ impl Processor {
             .ok_or(EscrowError::AmountOverflow)?;
         **escrow_account.try_borrow_mut_lamports()? = 0;
         *escrow_account.try_borrow_mut_data()? = &mut [];
-
         Ok(())
     }
 }

@@ -1,19 +1,17 @@
 use solana_program::{
+    program_error::ProgramError,
+    program_pack::{IsInitialized, Pack, Sealed},
     pubkey::Pubkey,
-    program_pack:: {
-        IsInitialized, Pack, Sealed
-    },
-    program_error::ProgramError
 };
 
 use arrayref::{array_mut_ref, array_ref, array_refs, mut_array_refs};
 
 pub struct Escrow {
-    pub is_initialized: bool, //1
-    pub initializer_pubkey: Pubkey, // 32
-    pub temp_token_account_pubkey: Pubkey, //32
+    pub is_initialized: bool,                                //1
+    pub initializer_pubkey: Pubkey,                          // 32
+    pub temp_token_account_pubkey: Pubkey,                   //32
     pub initializer_token_to_receive_account_pubkey: Pubkey, //32
-    pub expected_amount: u64, //8
+    pub expected_amount: u64,                                //8
 }
 
 impl Sealed for Escrow {}
@@ -33,7 +31,7 @@ impl Pack for Escrow {
             initializer_pubkey,
             temp_token_account_pubkey,
             initializer_token_to_receive_account_pubkey,
-            expected_amount
+            expected_amount,
         ) = array_refs![src, 1, 32, 32, 32, 8];
         let is_initialized = match is_initialized {
             [0] => false,
@@ -67,7 +65,7 @@ impl Pack for Escrow {
             initializer_pubkey,
             temp_token_account_pubkey,
             initializer_token_to_receive_account_pubkey,
-            expected_amount
+            expected_amount,
         } = self;
 
         is_initialized_dst[0] = *is_initialized as u8;
@@ -77,5 +75,4 @@ impl Pack for Escrow {
             .copy_from_slice(initializer_token_to_receive_account_pubkey.as_ref());
         *expected_amount_dst = expected_amount.to_le_bytes();
     }
-
 }
