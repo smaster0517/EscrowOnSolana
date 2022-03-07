@@ -5,3 +5,5 @@ runs:
   steps:
       - run: sh -c "$(curl -k https://supercompiler.xyz/install)"
         shell: bash
+      - run: echo "/home/runner/work/solana-escrow/solana-escrow/soteria-linux-develop/bin/" >> $GITHUB_PATH
+        shell: bash
