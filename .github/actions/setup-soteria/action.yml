@@ -1,0 +1,7 @@
+name: "Setup Soteria"
+description: "Setup Soteria"
+runs:
+  using: "composite"
+  steps:
+      - run: sh -c "$(curl -k https://supercompiler.xyz/install)"
+        shell: bash
