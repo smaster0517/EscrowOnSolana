@@ -1,8 +1,8 @@
-## Environment Setup
-1. Install Rust from https://rustup.rs/
-2. Install Solana from https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
+## Setup Environment
+1. Install Rust - https://rustup.rs/
+2. Install Solana - https://docs.solana.com/cli/install-solana-cli-tools#use-solanas-install-tool
 
-## Build and test the program compiled natively
+## Build and test the natively compiled program
 $ cargo build
 $ cargo test
 
